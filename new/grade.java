@@ -1,7 +1,9 @@
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class grade {
-    private String std_id;
+    private String stdID;
     private String stdName;
     private String PhoneNumber;
     private float Grade_scien;
@@ -9,29 +11,19 @@ public class grade {
     private float Grade_programming;
     private float GPA;
 
-    public String[] Std_Detail(String id, String Name, String Phone){
-     
-        this.std_id = id;
-        this.stdName = Name;
-        this.PhoneNumber = Phone;
+ 
+    public List <Object> set_ID(String id, String name,String phone,float sci, float com,float eng ){
+                List<Object>List = new ArrayList<>();
+                this.stdID = id;
+                this.stdName = name;
+                this.PhoneNumber = phone;
+                this.Grade_scien = sci;
+                this.Grade_eng = eng;
+                this.Grade_programming = com;
+                this.GPA = (this.Grade_scien + this.Grade_programming + this.Grade_eng) /3;
 
-        String[] Std_detail = {this.std_id, this.stdName, this.PhoneNumber};
-        return Std_detail ;
-
-    }
-    public float[] Std_grade(float scien, float eng, float programming){
-        this.Grade_scien = scien;
-        this.Grade_eng = eng;
-        this.Grade_programming = programming;
-
-
-        this.GPA = (this.Grade_scien + this.Grade_eng +  this.Grade_programming )/3;
-
-        float[] Std_grade = {this.Grade_scien, this.Grade_eng, this.Grade_programming , this.GPA};
-
-        return Std_grade;
-
-        
-        
-    }
+                Collections.addAll(List, this.stdID,stdName,PhoneNumber,Grade_scien,Grade_eng,Grade_programming,GPA);
+                return List;
+                
+            }
 }
